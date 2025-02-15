@@ -1,0 +1,46 @@
+🚀 Project Description: NASA APOD ETL Pipeline Using Apache Airflow, Docker, and PostgreSQL
+📌 Overview:
+
+This ETL pipeline is designed to extract, transform, and load (ETL) data from NASA’s Astronomy Picture of the Day (APOD) API into a PostgreSQL database using Apache Airflow. The entire pipeline runs in a Dockerized environment, ensuring scalability and ease of deployment.
+🔹 Project Workflow (ETL Pipeline)
+1️⃣ Extract:
+
+    Fetches data from NASA’s APOD API using the SimpleHttpOperator.
+    The API provides information about the astronomy picture of the day, including title, explanation, media type, and URL.
+    The API key is securely stored in Airflow’s connection manager (nasa_api).
+
+2️⃣ Transform:
+
+    Filters and extracts only the necessary fields:
+        title
+        explanation
+        url
+        date
+        media_type
+    Handles missing values by ensuring empty strings as defaults.
+
+3️⃣ Load:
+
+    Uses PostgresHook to connect to PostgreSQL.
+    Creates the apod_data table if it does not exist.
+    Inserts the cleaned data into the database.
+
+🔹 Key Technologies Used
+
+    Apache Airflow → Manages ETL workflow & scheduling.
+    PostgreSQL → Stores the extracted NASA APOD data.
+    Docker → Containerizes the Airflow environment for easy deployment.
+    Python → Implements data transformation & pipeline logic.
+
+🔹 Why This Project is Valuable in an Interview?
+
+    Real-world Data Engineering Use Case → Demonstrates ability to build a scalable ETL pipeline.
+    Integration with REST APIs → Shows how to fetch and process external data.
+    Automation & Scheduling → Proves knowledge of workflow orchestration with Airflow.
+    Database Management → Highlights experience in data storage and retrieval with PostgreSQL.
+    Dockerized Setup → Demonstrates skills in containerization for scalable deployment.
+
+🔹 How to Explain It in an Interview?
+
+💡 Example Response:
+"I built an ETL pipeline using Apache Airflow, Docker, and PostgreSQL to extract data from NASA’s APOD API. The pipeline follows a structured workflow: First, it ensures the database table exists, then extracts JSON data from the API, processes it to filter relevant fields, and loads the cleaned data into a PostgreSQL table. Airflow’s scheduling ensures the process runs daily, making it fully automated. The entire setup is containerized using Docker, ensuring easy deployment and scalability."
